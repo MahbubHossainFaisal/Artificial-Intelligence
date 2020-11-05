@@ -23,20 +23,23 @@ parent = {}
 p = PriorityQueue()
 for i in dict:
     parent[i]=None
-    path[i]= 1e5
+    path[i]= 100000
 p.put((0,'A'))
+
 path['A']=0
 while not p.empty():
      u=p.get()
-     cost=int(u[0])
+     cost=(u[0])
      for i,j in dict[u[1]].items():
          w= cost+j
          if(path[i]>w):
              path[i]=w
              parent[i]=u[1]
              p.put((w,i))
+GoalNode='C'
 print(path['C'])          
 last='C'
+print(parent);
 while True:
     print(last)
     last=parent[last]
